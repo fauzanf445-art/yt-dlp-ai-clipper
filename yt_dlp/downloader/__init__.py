@@ -24,18 +24,40 @@ def get_suitable_downloader(info_dict, params={}, default=NO_DEFAULT, protocol=N
 from .common import FileDownloader
 from .dash import DashSegmentsFD
 from .external import FFmpegFD, get_external_downloader
+from .f4m import F4mFD
+from .fc2 import FC2LiveFD
 from .hls import HlsFD
 from .http import HttpFD
+from .ism import IsmFD
+from .mhtml import MhtmlFD
+from .niconico import NiconicoLiveFD
+from .rtmp import RtmpFD
+from .rtsp import RtspFD
+from .websocket import WebSocketFragmentFD
 from .youtube_live_chat import YoutubeLiveChatFD
+from .bunnycdn import BunnyCdnFD
+from .soop import SoopVodFD
 
 PROTOCOL_MAP = {
+    'rtmp': RtmpFD,
+    'rtmpe': RtmpFD,
     'rtmp_ffmpeg': FFmpegFD,
     'm3u8_native': HlsFD,
     'm3u8': FFmpegFD,
+    'mms': RtspFD,
+    'rtsp': RtspFD,
+    'f4m': F4mFD,
     'http_dash_segments': DashSegmentsFD,
     'http_dash_segments_generator': DashSegmentsFD,
+    'ism': IsmFD,
+    'mhtml': MhtmlFD,
+    'niconico_live': NiconicoLiveFD,
+    'fc2_live': FC2LiveFD,
+    'websocket_frag': WebSocketFragmentFD,
     'youtube_live_chat': YoutubeLiveChatFD,
     'youtube_live_chat_replay': YoutubeLiveChatFD,
+    'bunnycdn': BunnyCdnFD,
+    'soopvod': SoopVodFD,
 }
 
 
